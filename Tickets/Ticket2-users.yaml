@@ -1,0 +1,15 @@
+---
+- name: add groups
+  hosts: all 
+  user: root
+  tasks:
+  - name: add list of groups
+    group:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - devops
+    - billing
+    - sales
+    - marketing
+    - dev  
