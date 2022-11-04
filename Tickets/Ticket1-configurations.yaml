@@ -1,0 +1,18 @@
+---
+- name: Change Configurations
+  hosts: all 
+  user: root
+  tasks:
+  - name: Ensure SELinux is set to enforcing mode
+    lineinfile:
+      path: /etc/selinux/config
+      regexp: '^SELINUX='
+      line: SELINUXTYPE=minimum
+  - name: Add a line to a file if the file does not exist, without passing regexp
+    lineinfile:
+      path: /etc/hosts
+      line: 127.0.0.1 facebook.com
+  - name: Add a line to a file if the file does not exist, without passing regexp
+    lineinfile:
+      path: /etc/resolv.conf
+      line: nameserver 8.8.8.8 
