@@ -1,0 +1,9 @@
+---
+- name: Change Configurations of /etc/motd
+  hosts: all 
+  user: root
+  tasks:
+  - name: Change Configurations of /etc/motd
+    blockinfile:
+      path: /etc/motd
+      block: Maintenance in progress, the system will be restarted soon
